@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>Constructor</title>
+
+    <style>
+      #wrap {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+      }
+
+      #app {
+        width: 100%;
+        height: 67vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      #panel {
+        border: 1px solid black;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 33vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .__root {
+        min-height: 100px;
+      }
+
+      .__target {
+        outline: 1px solid yellow;
+      }
+
+      .__elem:hover {
+        background-color: #eee;
+        outline: 1px solid greenyellow;
+      }
+
+      .__path_item {
+        cursor: pointer;
+      }
+      .__path_item:hover {
+        text-decoration: underline;
+      }
+      .__path_item:last-child:hover {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="wrap">
+
+      <div id="app">
+        <!-- <div class="__target __elem test" style="height: 100px;"></div> -->
+      </div>
+
+      <div id="panel">
+        <div class="container-fluid pt-2">
+          <div class="row">
+            <div class="col-9" id="path_wrap">
+              
+            </div>
+            <div class="col-3 d-flex justify-content-end align-items-center">
+              <button class="btn btn-primary mr-2" id="parrent_btn">Parrent</button>
+              <button class="btn btn-success" id="output_btn">Output</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#add_tag" role="tab" aria-controls="nav-home" aria-selected="true">Add tag</a>
+                  <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#remove_tag" role="tab" aria-controls="nav-profile" aria-selected="false">Remove</a>
+                  <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="nav-contact" aria-selected="false">Edit tag</a>
+                  <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#bootstrap" role="tab" aria-controls="nav-contact" aria-selected="false">Bootstrap components</a>
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="add_tag" role="tabpanel" aria-labelledby="nav-home-tab">
+                  <div class="row py-2">
+                    
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label for="tag_group">Tag group</label>
+                        <select id="tag_group" class="form-control">
+                          <option value="block">Block</option>
+                          <option value="inline">Inline</option>
+                          <option value="form">Form</option>
+                          <option value="list">List</option>
+                          <option value="table">Table</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label for="tag">Tag</label>
+                        <select id="tag" class="form-control">
+                        </select>
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="add_tag_class">Class</label>
+                        <input type="text" id="add_tag_class" class="form-control">
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="add_tag_text">Text</label>
+                        <input type="text" id="add_tag_text" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="add_tag_styles">Styles</label>
+                        <input type="text" id="add_tag_styles" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="add_tag_type">Type</label>
+                        <input type="text" id="add_tag_type" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="add_tag_value">Value</label>
+                        <input type="text" id="add_tag_value" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="add_tag_href">Href</label>
+                        <input type="text" id="add_tag_href" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="add_tag_src">Src</label>
+                        <input type="text" id="add_tag_src" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="add_tag_colspan">Colspan</label>
+                        <input type="text" id="add_tag_colspan" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="add_tag_rowspan">Rowspan</label>
+                        <input type="text" id="add_tag_rowspan" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="add_tag_scope">Scope</label>
+                        <input type="text" id="add_tag_scope" class="form-control">
+                      </div>
+                    </div>
+    
+                    <div class="col-12 d-flex align-items-center mt-3">
+                      <button class="btn btn-primary btn-block" id="add_tag_btn">Add</button>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="remove_tag" role="tabpanel" aria-labelledby="nav-profile-tab">
+                  <div class="row">
+                    <div class="col-12 d-flex justify-content-center py-3">
+                      <button class="btn btn-danger" id="remove_tag_btn">Remove tag</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="nav-contact-tab">
+                  <div class="row py-2">
+                    
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label for="edit_tag_group">Tag group</label>
+                        <select id="edit_tag_group" class="form-control">
+                          <option value="block">Block</option>
+                          <option value="inline">Inline</option>
+                          <option value="form">Form</option>
+                          <option value="list">List</option>
+                          <option value="table">Table</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label for="edit_tag">Tag</label>
+                        <select id="edit_tag" class="form-control">
+                        </select>
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="edit_tag_class">Class</label>
+                        <input type="text" id="edit_tag_class" class="form-control">
+                      </div>
+                    </div>
+    
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="edit_tag_text">Text</label>
+                        <input type="text" id="edit_tag_text" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="edit_tag_styles">Styles</label>
+                        <input type="text" id="edit_tag_styles" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="edit_tag_type">Type</label>
+                        <input type="text" id="edit_tag_type" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="edit_tag_value">Value</label>
+                        <input type="text" id="edit_tag_value" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="edit_tag_href">Href</label>
+                        <input type="text" id="edit_tag_href" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="edit_tag_src">Src</label>
+                        <input type="text" id="edit_tag_src" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="edit_tag_colspan">Colspan</label>
+                        <input type="text" id="edit_tag_colspan" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="edit_tag_rowspan">Rowspan</label>
+                        <input type="text" id="edit_tag_rowspan" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="gorm-group">
+                        <label for="edit_tag_scope">Scope</label>
+                        <input type="text" id="edit_tag_scope" class="form-control">
+                      </div>
+                    </div>
+    
+                    <div class="col-12 d-flex align-items-center mt-3">
+                      <button class="btn btn-primary btn-block" id="edit_tag_btn">Edit</button>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="bootstrap" role="tabpanel" aria-labelledby="nav-contact-tab">
+                  <div class="row py-2">
+
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label for="b_group">Component type</label>
+                        <select id="b_group" class="form-control">
+                          <option value="b_grid">Grid</option>
+                          <option value="b_alert">Alert</option>
+                          <option value="b_badge">Badge</option>
+                          <option value="b_breadcrumb">Breadcrumb</option>
+                          <option value="b_btn">Button</option>
+                          <option value="b_btn_group">Button group</option>
+                          <option value="b_card">Card</option>
+                          <option value="b_form_control">Form control</option>
+                          <option value="b_input_group">Input group</option>
+                          <option value="b_table">Table</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label for="b_component">Component</label>
+                        <select id="b_component" class="form-control">
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label for="b_additional_class">Additional class</label>
+                        <input type="text" id="b_additional_class" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-12 mt-2">
+                      <button class="btn btn-primary btn-block" id="add_bc_btn">Add</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <script type="module" src="scripts/app.js"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
